@@ -1,0 +1,169 @@
+configuration {
+
+    // The display name of this browser
+    display-ssh:                   "  ";
+    // The display name of this browser
+    display-run:                    "";
+    // The display name of this browser
+    display-drun:                   "";
+    // The display name of this browser
+    display-window:                 "";
+    display-combi:                  "";
+    show-icons: true;
+}
+
+
+* {
+    foreground:  #c5c8c6;
+    backlight:   #ccffeedd;
+    background-color:  transparent;
+    dark: #1c1c1c;
+    black:       #3d352a;
+    lightblack:  #554444;
+    tlightblack:  #554444cc;
+    //
+    // Red
+    red:         #cc6666;
+    lightred:    #cc6666;
+    //
+    // Green
+    green:       #b5bd68;
+    lightgreen:  #b5bd68;
+    //
+    // Yellow
+    yellow:      #e8ae5b;
+    lightyellow:     #ffa75d;
+    //
+    // Blue
+    blue:      #6495ed;
+    lightblue:     #87ceeb;
+    //
+    // Magenta
+    magenta:      #deb887;
+    lightmagenta:     #996600;
+    //
+    // Cyan
+    cyan:      #b0c4de;
+    tcyan:      #ccb0c4de;
+    lightcyan:     #b0c4de;
+    //
+    // White
+    white:      #bbaa99;
+    lightwhite:     #ddccbb;
+    //
+    // Bold, Italic, 
+    highlight:     bold #ffffff;
+
+    transparent: rgba(0,0,0,0.1);
+    font: "Segoe UI 12";
+}
+#window {
+    location: center;
+    anchor:   center;
+    transparency: "screenshot";
+    color: @magenta;
+    spacing: 0;
+    children:  [vertb, mainbox];
+    orientation: horizontal;
+}
+
+#mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+#message {
+    border-color: @foreground;
+    border:  0px 1px 1px 1px;
+    padding: 5;
+    background-color: @tcyan;
+}
+#message {
+    font: "Sauce Code Powerline ExtraLight 8";
+    color: @black;
+}
+
+#inputbar {
+    color: @foreground;
+    padding: 30px;
+    background-color: rgba(0,0,0,0.6);
+}
+#entry,prompt,case-indicator {
+    text-font: inherit;
+    text-color:inherit;
+    margin:5px;
+}
+#listview {
+    padding: 30px;
+    border: 0px 1px 1px 1px;
+    background-color: rgba(0,0,0,0.6);
+    dynamic: false;
+    lines: 8;
+}
+#element {
+    padding: 10px;
+    vertical-align: 0.5;
+    background-color: transparent;
+    color: @foreground;
+    font:inherit;
+}
+#element selected.normal {
+    background-color: @green;
+    color: rgba(0,0,0,0.7);
+}
+#element normal active {
+    foreground: @green;
+}
+#element normal urgent {
+    foreground: @lightred;
+}
+#element alternate normal {
+}
+#element alternate active {
+    foreground: @green;
+}
+#element alternate urgent {
+    foreground: @lightred;
+}
+#element selected active {
+    background-color: @red;
+    foreground: #000;
+}
+#element selected urgent {
+    background-color: @lightred;
+    foreground: @dark;
+}
+#element normal normal {
+
+}
+
+#vertb {
+    expand: false;
+    children: [ dummy0, sidebar, dummy1  ];
+}
+#dummy0,  dummy1 {
+    expand: true;
+}
+
+#sidebar {
+    expand: false;
+    orientation: vertical;
+    spacing: 0px;
+    border: 0px 0px 0px 0px;
+}
+#button {
+    font: "FontAwesome 22";
+    padding: 6px;
+    border: 1px 0px 1px 1px;
+    background-color: @tlightblack;
+    border-color: @foreground;
+    color: @foreground;
+    horizontal-align: 0.5;
+}
+#button selected normal {
+    color: @dark;
+    border: 1px 0px 1px 1px;
+    background-color: @green;
+    border-color: @foreground;
+}
+
