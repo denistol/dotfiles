@@ -11,12 +11,11 @@ export PATH="/home/denis/.local/bin:$PATH"
 # -----------------------------------------------------------------------------
 # History Settings (Sync between multiple terminals)
 # -----------------------------------------------------------------------------
-shopt -s histappend                        # Дописывать в историю, а не перезаписывать файл
-export HISTSIZE=100000                     # Количество строк в памяти
-export HISTFILESIZE=200000                 # Количество строк в файле ~/.bash_history
-export HISTCONTROL=ignoreboth:erasedups    # Игнорировать пробелы и дубликаты
-export HISTTIMEFORMAT="%d.%m.%Y %H:%M:%S " # Запоминать время выполнения команд
-
+shopt -s histappend                        # Append to history file instead of overwriting
+export HISTSIZE=100000                     # Max lines in memory
+export HISTFILESIZE=200000                 # Max lines in ~/.bash_history
+export HISTCONTROL=ignoreboth:erasedups    # Ignore spaces and erase duplicates
+export HISTTIMEFORMAT="%d.%m.%Y %H:%M:%S " # Timestamp format
 
 # Aliases
 alias ls='ls --color=auto'
@@ -42,20 +41,20 @@ C_BOLD="\[\033[1m\]"
 C_RESET="\[\033[0m\]"
 
 # -----------------------------------------------------------------------------
-# Welcome Greeting Banner (Строка приветствия при запуске)
+# Welcome Greeting Banner
 # -----------------------------------------------------------------------------
 __show_greeting() {
     local hour
     hour=$(date +%H)
-    local greeting="Добро пожаловать"
+    local greeting="Welcome"
     if [ "$hour" -ge 5 ] && [ "$hour" -lt 12 ]; then
-        greeting="Доброе утро"
+        greeting="Good morning"
     elif [ "$hour" -ge 12 ] && [ "$hour" -lt 18 ]; then
-        greeting="Добрый день"
+        greeting="Good afternoon"
     elif [ "$hour" -ge 18 ] && [ "$hour" -lt 23 ]; then
-        greeting="Добрый вечер"
+        greeting="Good evening"
     else
-        greeting="Доброй ночи"
+        greeting="Good night"
     fi
 
     # Raw escape colors for echo
@@ -96,7 +95,7 @@ __git_prompt() {
 }
 
 # -----------------------------------------------------------------------------
-# Dynamic Prompt (Строка приглашения PS1)
+# Dynamic Prompt (PS1)
 # -----------------------------------------------------------------------------
 __set_prompt() {
     local last_exit=$?
@@ -114,14 +113,14 @@ __set_prompt() {
 }
 
 __prompt_command() {
-    history -a  # Сразу дописывать выполненную команду в ~/.bash_history
-    history -c  # Очистить буфер памяти
-    history -r  # Перечитать весь файл истории (включая команды из соседних терминалов)
+    history -a  # Append executed command to ~/.bash_history
+    history -c  # Clear in-memory history
+    history -r  # Reload history from file
     __set_prompt
 }
 
 PROMPT_COMMAND=__prompt_command
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # Dotfiles bare git alias
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'

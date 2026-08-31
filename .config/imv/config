@@ -1,23 +1,23 @@
 [options]
-# Показывать фон шахматкой для прозрачных изображений
+# Checkerboard background for transparent images
 background = checks
-# Автоматически масштабировать под окно при открытии
+# Scale down to fit window on open
 scaling_mode = shrink
 
 [binds]
-# Навигация стрелками (работает независимо от раскладки EN/RU)
+# Arrow navigation
 <Left> = prev
 <Right> = next
 <Space> = next
 <BackSpace> = prev
 
-# Дополнительно стандартные кнопки
+# Additional standard keys
 <bracketleft> = prev
 <bracketright> = next
 p = prev
 n = next
 
-# Зум и позиционирование
+# Zoom and positioning
 <Up> = zoom 1
 <Down> = zoom -1
 <Shift+Up> = zoom actual
@@ -25,15 +25,15 @@ n = next
 w = zoom 0
 W = zoom actual
 
-# Повороты
+# Rotation
 r = rotate by 90
 <Shift+R> = rotate by -90
 
-# Полноэкранный режим
+# Fullscreen
 f = fullscreen
 <Return> = fullscreen
 
-# Выход
+# Exit
 q = quit
 <Escape> = quit
 x = close

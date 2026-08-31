@@ -19,17 +19,17 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # -----------------------------------------------------------------------------
-# History Settings (Мгновенная синхронизация между всеми терминалами)
+# History Settings (Instant sync across terminals)
 # -----------------------------------------------------------------------------
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=200000
-setopt SHARE_HISTORY          # Мгновенно делиться историей между всеми окнами/вкладками
-setopt HIST_IGNORE_ALL_DUPS   # Не сохранять дубликаты
-setopt HIST_IGNORE_SPACE      # Не сохранять команды с пробелом в начале
-setopt HIST_SAVE_NO_DUPS      # Не сохранять дубликаты в файл
-setopt HIST_EXPIRE_DUPS_FIRST # Удалять дубликаты первыми при переполнении
-setopt HIST_FIND_NO_DUPS      # При поиске показывать уникальные записи
+setopt SHARE_HISTORY          # Share history instantly between sessions
+setopt HIST_IGNORE_ALL_DUPS   # Do not save duplicates
+setopt HIST_IGNORE_SPACE      # Do not save commands starting with space
+setopt HIST_SAVE_NO_DUPS      # Do not save duplicates to file
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first
+setopt HIST_FIND_NO_DUPS      # Show unique entries in history search
 
 # -----------------------------------------------------------------------------
 # Aliases
@@ -47,15 +47,15 @@ alias grep='grep --color=auto'
 __show_greeting() {
     local hour
     hour=$(date +%H)
-    local greeting="Добро пожаловать"
+    local greeting="Welcome"
     if [ "$hour" -ge 5 ] && [ "$hour" -lt 12 ]; then
-        greeting="Доброе утро"
+        greeting="Good morning"
     elif [ "$hour" -ge 12 ] && [ "$hour" -lt 18 ]; then
-        greeting="Добрый день"
+        greeting="Good afternoon"
     elif [ "$hour" -ge 18 ] && [ "$hour" -lt 23 ]; then
-        greeting="Добрый вечер"
+        greeting="Good evening"
     else
-        greeting="Доброй ночи"
+        greeting="Good night"
     fi
 
     local e_blue=$'\e[38;2;137;180;250m'
@@ -77,7 +77,7 @@ __show_greeting() {
 __show_greeting
 
 # -----------------------------------------------------------------------------
-# Dynamic Catppuccin Prompt (Чистые Zsh 24-bit TrueColor коды)
+# Dynamic Catppuccin Prompt
 # -----------------------------------------------------------------------------
 __git_branch_zsh() {
     local branch
@@ -101,7 +101,7 @@ PROMPT='%F{#6c7086}╭─ %F{#89b4fa} %~%f$(__git_branch_zsh)
 # -----------------------------------------------------------------------------
 # Keybindings for Autosuggestions & History Search
 # -----------------------------------------------------------------------------
-# Стрелка вверх/вниз для поиска по началу введенной команды
+# Up/Down arrows for history search
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -109,7 +109,7 @@ zle -N down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
-# Стрелка вправо — принять автодополнение
+# Right arrow to accept autosuggestion
 bindkey '^[[C' forward-char
 
 # Rust cargo env
