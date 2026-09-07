@@ -1018,6 +1018,14 @@ vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer (Sp
 vim.keymap.set("n", "<leader>z", "za", { desc = "Toggle fold (Space+z)" })
 
 -- -----------------------------------------------------------------------------
+-- Insert Mode Navigation
+-- -----------------------------------------------------------------------------
+-- Move cursor right with Ctrl + l
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move cursor right in insert mode" })
+-- Move cursor left with Ctrl + h
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move cursor left in insert mode" })
+
+-- -----------------------------------------------------------------------------
 -- Langmapper: Automap all registered keybindings for Russian layout
 -- -----------------------------------------------------------------------------
 pcall(function()
