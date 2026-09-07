@@ -68,10 +68,10 @@ __show_greeting() {
     local e_bold=$'\e[1m'
     local e_reset=$'\e[0m'
 
-    print ""
-    print "  ${e_mauve}${e_reset}  ${e_bold}${e_blue}Arch Linux${e_reset} ${e_gray}•${e_reset} ${e_teal}Hyprland${e_reset} ${e_gray}•${e_reset} ${e_peach}Kitty / Zsh${e_reset}"
-    print "  ${e_green}󰄛 ${greeting}, ${USER}!${e_reset}  ${e_sub}󰥔 $(date +%H:%M)${e_reset}  ${e_gray}󰃭 $(date +%d.%m.%Y)${e_reset}"
-    print ""
+    # print ""
+    # print "  ${e_mauve}${e_reset}  ${e_bold}${e_blue}Arch Linux${e_reset} ${e_gray}•${e_reset} ${e_teal}Hyprland${e_reset} ${e_gray}•${e_reset} ${e_peach}Kitty / Zsh${e_reset}"
+    # print "  ${e_green}󰄛 ${greeting}, ${USER}!${e_reset}  ${e_sub}󰥔 $(date +%H:%M)${e_reset}  ${e_gray}󰃭 $(date +%d.%m.%Y)${e_reset}"
+    # print ""
 }
 
 __show_greeting

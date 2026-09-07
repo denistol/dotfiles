@@ -1,60 +1,64 @@
 window {
-    margin: 0px;
-    border: 2px solid rgba(203, 166, 247, 0.6);
-    border-radius: 18px;
-    background-color: rgba(24, 24, 37, 0.9);
-    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
-    font-size: 14px;
+	margin: 0px;
+	border: 2px solid #89b4fa;
+	border-radius: 6px;
+	background-color: rgba(24, 24, 37, 0.9);
+	font-family: sans-serif;
+	font-size: 14px;
 }
 
 #input {
-    margin: 12px;
-    padding: 8px 14px;
-    border: 1px solid rgba(137, 180, 250, 0.4);
-    border-radius: 12px;
-    color: #cdd6f4;
-    background-color: rgba(17, 17, 27, 0.8);
+	margin: 12px;
+	padding: 8px 14px;
+	border: 1px solid rgba(137, 180, 250, 0.4);
+	border-radius: 4px;
+	color: #cdd6f4;
+	background-color: rgba(17, 17, 27, 0.8);
 }
 
 #input:focus {
-    border: 1px solid #cba6f7;
-    box-shadow: 0 0 8px rgba(203, 166, 247, 0.5);
+	border: 1px solid #cba6f7;
+	box-shadow: 0 0 8px rgba(203, 166, 247, 0.5);
 }
 
 #inner-box {
-    margin: 6px 12px 12px 12px;
-    background-color: transparent;
+	margin: 6px 12px 12px 12px;
+	background-color: transparent;
 }
 
 #outer-box {
-    margin: 0px;
-    background-color: transparent;
+	margin: 0px;
+	background-color: transparent;
 }
 
 #scroll {
-    margin: 0px;
-    border: none;
+	margin: 0px;
+	border: none;
 }
 
 #text {
-    margin: 4px;
-    color: #cdd6f4;
+	margin: 4px;
+	color: #cdd6f4;
 }
 
 #entry {
-    padding: 6px 10px;
-    border-radius: 10px;
-    margin: 2px 0px;
-    background-color: transparent;
-    transition: all 0.15s ease-in-out;
+	padding: 6px 10px;
+	border-radius: 4px;
+	margin: 2px 0px;
+	background-color: transparent;
+	transition: all 0.15s ease-in-out;
 }
 
 #entry:selected {
-    background: linear-gradient(135deg, rgba(137, 180, 250, 0.35), rgba(203, 166, 247, 0.35));
-    border: 1px solid rgba(203, 166, 247, 0.5);
+	background: linear-gradient(
+		135deg,
+		rgba(137, 180, 250, 0.35),
+		rgba(203, 166, 247, 0.35)
+	);
+	border: 1px solid rgba(203, 166, 247, 0.5);
 }
 
 #entry:selected #text {
-    color: #ffffff;
-    font-weight: bold;
+	color: #ffffff;
+	font-weight: bold;
 }
