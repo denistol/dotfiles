@@ -708,6 +708,10 @@ require("lazy").setup({
 				vim.keymap.set("n", "<leader>f", function()
 					vim.lsp.buf.format({ async = true })
 				end, vim.tbl_extend("force", opts, { desc = "Format code" }))
+
+				pcall(function()
+					require("langmapper").automapping({ buffer = bufnr })
+				end)
 			end
 
 			-- Setup Mason-LSPConfig with auto-installed servers
@@ -906,10 +910,19 @@ require("lazy").setup({
 -- -----------------------------------------------------------------------------
 -- Global LSP Keybindings (Fallback)
 -- -----------------------------------------------------------------------------
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol (Space+rn)" })
 vim.keymap.set({ "n", "v" }, "<leader>.", vim.lsp.buf.code_action, { desc = "Code actions (Space+.)" })
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions (Space+ca)" })
 vim.keymap.set({ "n", "v" }, "<A-CR>", vim.lsp.buf.code_action, { desc = "Code actions (Alt+Enter)" })
 vim.keymap.set({ "n", "v", "i" }, "<C-.>", vim.lsp.buf.code_action, { desc = "Code actions (Ctrl+.)" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
+vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostic" })
+vim.keymap.set("n", "<leader>f", function()
+	vim.lsp.buf.format({ async = true })
+end, { desc = "Format code" })
 
 -- -----------------------------------------------------------------------------
 -- Transparent Background Enforcement
