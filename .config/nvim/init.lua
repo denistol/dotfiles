@@ -648,8 +648,18 @@ require("lazy").setup({
 				vim.keymap.set(
 					"n",
 					"K",
-					vim.lsp.buf.hover,
+					function()
+						vim.lsp.buf.hover({ border = "rounded" })
+					end,
 					vim.tbl_extend("force", opts, { desc = "Hover documentation" })
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>k",
+					function()
+						vim.lsp.buf.hover({ border = "rounded" })
+					end,
+					vim.tbl_extend("force", opts, { desc = "Hover documentation (Space+k)" })
 				)
 				vim.keymap.set(
 					"n",
@@ -918,7 +928,12 @@ vim.keymap.set({ "n", "v", "i" }, "<C-.>", vim.lsp.buf.code_action, { desc = "Co
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
 vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" })
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end, { desc = "Hover documentation (K)" })
+vim.keymap.set("n", "<leader>k", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end, { desc = "Hover documentation (Space+k)" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostic" })
 vim.keymap.set("n", "<leader>f", function()
 	vim.lsp.buf.format({ async = true })
