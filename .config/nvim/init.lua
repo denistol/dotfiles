@@ -1024,6 +1024,10 @@ vim.keymap.set("n", "<leader>z", "za", { desc = "Toggle fold (Space+z)" })
 vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move cursor right in insert mode" })
 -- Move cursor left with Ctrl + h
 vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move cursor left in insert mode" })
+-- Move cursor down with Ctrl + j
+vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move cursor down in insert mode" })
+-- Move cursor up with Ctrl + k
+vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move cursor up in insert mode" })
 
 -- -----------------------------------------------------------------------------
 -- Langmapper: Automap all registered keybindings for Russian layout
