@@ -1008,10 +1008,14 @@ end, { desc = "Toggle selection comment (Ctrl+/)" })
 -- Space + n: Next buffer
 vim.keymap.set("n", "<leader>n", "<cmd>bnext<cr>", { desc = "Next buffer (Space+n)" })
 
+-- Space + b: Previous buffer
+vim.keymap.set("n", "<leader>b", "<cmd>bprevious<cr>", { desc = "Previous buffer (Space+b)" })
+
 -- Space + Shift + n: Previous buffer
 vim.keymap.set("n", "<leader>N", "<cmd>bprevious<cr>", { desc = "Previous buffer (Space+Shift+N)" })
 
--- Close current buffer (Space + bd / Space + c)
+-- Close current buffer (Space + x / Space + bd)
+vim.keymap.set("n", "<leader>x", "<cmd>bdelete<cr>", { desc = "Close buffer (Space+x)" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer (Space+bd)" })
 
 -- Fold / Unfold under cursor (Space + z or za)
