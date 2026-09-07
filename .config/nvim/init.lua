@@ -161,6 +161,8 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				rust = { "rustfmt", lsp_format = "fallback" },
+				c = { "clang-format", lsp_format = "fallback" },
+				cpp = { "clang-format", lsp_format = "fallback" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
@@ -394,6 +396,8 @@ require("lazy").setup({
 			ensure_installed = {
 				"lua",
 				"rust",
+				"c",
+				"cpp",
 				"typescript",
 				"javascript",
 				"tsx",
@@ -710,6 +714,7 @@ require("lazy").setup({
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"rust_analyzer", -- Rust LSP
+					"clangd", -- C / C++ LSP
 					"ts_ls", -- TypeScript / JavaScript LSP
 					"lua_ls", -- Lua LSP (for Neovim config)
 					"html", -- HTML LSP
@@ -742,6 +747,26 @@ require("lazy").setup({
 										parameterHints = { enable = true },
 									},
 								},
+							},
+						})
+					end,
+
+					-- Clangd (C / C++) specific settings
+					["clangd"] = function()
+						lspconfig.clangd.setup({
+							capabilities = capabilities,
+							on_attach = on_attach,
+							cmd = {
+								"clangd",
+								"--background-index",
+								"--clang-tidy",
+								"--header-insertion=iwyu",
+								"--completion-style=detailed",
+								"--function-arg-placeholders",
+								"--fallback-style=llvm",
+							},
+							init_options = {
+								fallbackFlags = { "-std=c++20" },
 							},
 						})
 					end,
